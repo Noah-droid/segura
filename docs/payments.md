@@ -40,7 +40,7 @@ Content-Type: application/json
 | `email`       | string | Customer's email address            |
 | `phoneNumber` | string | Customer's phone number             |
 | `country`     | string | Customer's country                  |
-| `currency`    | string | Currency code (e.g., `USD`, `NGN`) |
+| `currency`    | string | Currency code (e.g., `GBP`, `EUR`) |
 | `callbackUrl` | string | URL to receive payment updates      |
 | `amount`      | number | Payment amount                      |
 
