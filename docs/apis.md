@@ -39,7 +39,7 @@ public class AuthKeyGenerator {
 Include the encoded authorization key in your API requests as a header:
 
 ```
-Authorization: AuthKey <EncodedAuthKey>
+AuthKey: <EncodedAuthKey>
 ```
 
 Replace `<EncodedAuthKey>` with the Base64-encoded string generated from the steps above.

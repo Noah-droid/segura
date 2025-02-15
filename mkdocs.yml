@@ -4,7 +4,7 @@ nav:
   - Home: index.md
   - Api Keys: apis.md
   - Initialize Payments: payments.md 
-  - Process Payments: process.md
-  - Get Status: status.md
+  # - Process Payments: process.md
+  # - Get Status: status.md
 
 theme: readthedocs
