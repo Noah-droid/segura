@@ -7,10 +7,10 @@
 | MASTERCARD| 5591390000000504      | Y       | 0 – Ok      |
 | VISA      | 4900490000000501      | Y       | 0 – Ok      |
 
- **Success Cards Test case 1:**
+ <!-- **Success Cards Test case 1:**
 ![alt text](image-1.png)
 
-![alt text](image.png)
+![alt text](image.png) -->
 
 
 #### (3DSv2) Test Case 2: Failed Frictionless 3-D Secure Authentication & Failed Authorisation
@@ -21,14 +21,10 @@
 | MASTERCARD| 5591390000000520      | N       | Not performed |
 | VISA      | 4900490000000519      | N       | Not performed |
 
- **Failed Cards Test case 1:**
-![alt text](image-2.png)
+ <!-- **Failed Cards Test case 1:** -->
 
-![alt text](image-3.png)
 
-### Here is a video where a user tries to make payment using the successful 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rObbWc47aPM" title="Segura Gateway Integration Video" frameborder="0" allowfullscreen></iframe>
 
 
 
