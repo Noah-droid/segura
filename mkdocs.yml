@@ -3,8 +3,10 @@ site_name: Segura Docs
 nav:
   - Home: index.md
   - Api Keys: apis.md
-  - Initialize Payments: payments.md 
-  # - Process Payments: process.md
+  - HTML Integration: payments.md
+  - API Integration: process.md 
+  - Cards: cards.md
+
   # - Get Status: status.md
 
 theme: readthedocs

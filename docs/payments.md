@@ -63,12 +63,12 @@ Segura Gateway is a secure and efficient payment gateway that allows businesses 
    - `gateway.startPayment()` is called with customer details such as amount, customerId, currency, country, email, and phoneNumber.
 
 ### Notes
-- Gateway is subject to changes, hence ralways refer to the updated documentation. 
+- Gateway is subject to changes, hence always refer to the updated documentation. 
 - Always keep your authKey confidential and avoid exposing it on the client side in production.
 - Validate and sanitize all inputs on the server side before processing payments.
 
 
 
-<!-- ### Conclusion
-This example showcases the basic integration steps for embedding Segura Gateway into your web application. Developers are encouraged to consult the official Segura Gateway documentation for advanced features and security practices. -->
+### Conclusion
+This example showcases the basic integration steps for embedding Segura Gateway into your web application. Developers are encouraged to consult the official Segura Gateway documentation for advanced features and security practices.
 
