@@ -16,14 +16,14 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
 ### Request Body
 ```json
 {
-  "amount": "string",          
-  "customerId": "string",      // Unique customer identifier
-  "currency": "string",        // Currency code (e.g., USD)
-  "country": "string",         // Country code (e.g., NG)
-  "callbackUrl": "string",     // Callback URL is optional
-  "fullName": "string",        // Customer's full name
-  "email": "string",          // Customer's email (optional)
-  "phoneNumber": "string"     // Customer's phone with country code
+  "amount": "string",          // Compulsory: Payment amount
+  "customerId": "string",      // Compulsory: Unique customer identifier
+  "currency": "string",        // Compulsory: Currency code (e.g., USD)
+  "country": "string",         // Compulsory: Country code (e.g., NG)
+  "callbackUrl": "string",     // Optional: Callback URL
+  "fullName": "string",        // Compulsory: Customer's full name
+  "email": "string",           // Optional: Customer's email
+  "phoneNumber": "string"      // Compulsory: Customer's phone with country code
 }
 ```
 
@@ -72,8 +72,6 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IWQKdWizVac" title="Segura Gateway Integration Video" frameborder="0" allowfullscreen></iframe>
 
-
-
 <br>
 ## Check Payment Status
 
@@ -100,6 +98,5 @@ curl -X GET https://api-dev.segura-pay.com/api/v1/payment-gateway/status/35ca5fa
 - Always store the `reference` to check payment status later
 - Monitor the payment status endpoint to confirm successful transactions
 - All amounts are processed in the smallest currency unit (e.g., cents for USD)
-
 
 See [Test Cards](./cards.md) for test payment data to use during integration.
