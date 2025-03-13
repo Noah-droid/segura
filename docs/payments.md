@@ -17,7 +17,8 @@ This documentation provides an example implementation of the Segura Gateway. Bel
         // Initialize the SeguraGateway
         const gateway = new Segura({
           authKey: "d2FsbGV0X3Rlc3RfY2xpZW50OiRjbGllbnQzNDUwMDA5JA==", // Required
-          callbackUrl: "https://yourwebsite.com/payment-callback" // Optional, but recommended for webhook notifications
+          callbackUrl: "https://yourwebsite.com/payment-callback", // Optional, but recommended for webhook notifications 
+          isNative: true, // Optional, defaults to true - determines whether to use Segura's UI or handle it from your end
         });
 
         // Attach event listener to the payment button
@@ -29,7 +30,12 @@ This documentation provides an example implementation of the Segura Gateway. Bel
             country: "NG", 
             customerName: "Abayomi Chinedu", 
             email: "abayomichinedu@email.com", 
-            phoneNumber: "08123121234"
+            phoneNumber: "08123121234",
+            // pass card details if isNative is False
+            cvv: "123",
+            pan: "5591390000000504",
+            expiry: "12/2025" //  MM/YYYY
+           
           });
         });
       });
@@ -39,6 +45,52 @@ This documentation provides an example implementation of the Segura Gateway. Bel
     <button id="payButton">Pay Now</button>
   </body>
 </html>
+```
+
+
+### Native UI Mode Configuration
+
+The `isNative` parameter controls how card details are collected:
+
+#### When isNative: true (Default)
+```javascript
+const gateway = new Segura({
+  authKey: "d2FsbGV0X3Rlc3RfY2xpZW50OiRjbGllbnQzNDUwMDA5JA==",
+  isNative: true  // Uses Segura's built-in UI
+});
+
+await gateway.startPayment({
+  amount: 10,
+  customerId: "customer123",
+  currency: "USD",
+  country: "NG", 
+  customerName: "Abayomi Chinedu", 
+  email: "abayomichinedu@email.com", 
+  phoneNumber: "08123121234",
+// No need to pass card details
+});
+```
+
+#### When isNative: false (Custom UI)
+```javascript
+const gateway = new Segura({
+  authKey: "d2FsbGV0X3Rlc3RfY2xpZW50OiRjbGllbnQzNDUwMDA5JA==",
+  isNative: false  // Use your own UI
+});
+
+await gateway.startPayment({
+  amount: 10,
+  customerId: "customer123",
+  currency: "USD",
+  country: "NG", 
+  customerName: "Abayomi Chinedu", 
+  email: "abayomichinedu@email.com", 
+  phoneNumber: "08123121234",
+// Card details required
+  cvv: "123",
+  pan: "5591390000000504",
+  expiry: "12/2025" //  MM/YYYY
+}); 
 ```
 
 
