@@ -21,9 +21,10 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
   "currency": "string",        // Compulsory: Currency code (e.g., USD)
   "country": "string",         // Compulsory: Country code (e.g., NG)
   "callbackUrl": "string",     // Optional: Callback URL
-  "fullName": "string",        // Compulsory: Customer's full name
+  "customerName": "string",        // Compulsory: Customer's full name
   "email": "string",           // Optional: Customer's email
-  "phoneNumber": "string"      // Compulsory: Customer's phone with country code
+  "phoneNumber": "string",     // Compulsory: Customer's phone with country code
+  "clientReference": "string"
 }
 ```
 
