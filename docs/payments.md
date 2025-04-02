@@ -2,6 +2,12 @@
 
 This documentation provides an example implementation of the Segura Gateway. Below is the sample frontend code:
 
+
+### Script URLs
+- **Test Environment:** `https://keepfxdev-bucket.fra1.cdn.digitaloceanspaces.com/segura-gateway-v1.js`
+- **Production Environment:** `https://keepfxdev-bucket.fra1.cdn.digitaloceanspaces.com/segura-gateway-prod.js`
+
+
 ### Example HTML + JavaScript Integration
 ```html
 <!DOCTYPE html>
@@ -11,6 +17,9 @@ This documentation provides an example implementation of the Segura Gateway. Bel
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <script src="https://keepfxdev-bucket.fra1.cdn.digitaloceanspaces.com/segura-gateway-v1.js"></script>
+
+     <!-- OR use production environment script -->
+    <!-- <script src="https://keepfxdev-bucket.fra1.cdn.digitaloceanspaces.com/segura-gateway-prod.js"></script> -->
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
