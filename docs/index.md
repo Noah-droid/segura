@@ -13,8 +13,8 @@ This documentation provides an overview of the Segura Payment Gateway, which ena
 
 To begin using the Segura Payment Gateway API:
 
-1. [**Sign up**](https://segura-web-dev.segura-pay.com/auth/register) for API access and obtain your credentials.
-2. **Your Test API** credentials are sent to your mail upon [**Sign up**](https://segura-web-dev.segura-pay.com/auth/register).
+1. [**Sign up**](https://www.segura-pay.com/auth/register) for API access and obtain your credentials.
+2. **Your Test API** credentials can be viewed on the settings page on the dashboard.
 3. **Authenticate** using the provided methods.
 4. **Integrate** the API endpoints into your application as documented.
 

@@ -1,14 +1,14 @@
-## Segura Gateway HTML + JavaScript Integration Guide
+## Segura Gateway HTML/JavaScript Integration Guide
 
 This documentation provides an example implementation of the Segura Gateway. Below is the sample frontend code:
 
 
 ### Script URLs
-- **Test Environment:** `https://keepfxdev-bucket.fra1.cdn.digitaloceanspaces.com/segura-gateway-v1.js`
-- **Production Environment:** `https://keepfxdev-bucket.fra1.cdn.digitaloceanspaces.com/segura-gateway-prod.js`
+- **Test Library Environment:** `https://keepfxdev-bucket.fra1.cdn.digitaloceanspaces.com/segura-gateway-v1.js`
+- **Production Library Environment:** `https://keepfxdev-bucket.fra1.cdn.digitaloceanspaces.com/segura-gateway-prod.js`
 
 
-### Example HTML + JavaScript Integration
+### Example HTML/JavaScript Integration
 ```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -18,7 +18,7 @@ This documentation provides an example implementation of the Segura Gateway. Bel
 
     <script src="https://keepfxdev-bucket.fra1.cdn.digitaloceanspaces.com/segura-gateway-v1.js"></script>
 
-     <!-- OR use production environment script -->
+     <!-- OR use production library environment script -->
     <!-- <script src="https://keepfxdev-bucket.fra1.cdn.digitaloceanspaces.com/segura-gateway-prod.js"></script> -->
 
     <script>

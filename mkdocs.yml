@@ -3,9 +3,10 @@ site_name: Segura Docs
 nav:
   - Home: index.md
   - Api Keys: apis.md
-  - HTML Integration: payments.md
+  - Javascript Library: payments.md
   - API Integration: process.md 
   - Cards: cards.md
+  - Segura Virtual Accounts: sva.md
   - Conclusion: conclusion.md
 
   # - Get Status: status.md

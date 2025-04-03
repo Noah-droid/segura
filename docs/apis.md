@@ -1,15 +1,15 @@
 # API Authorization Key
 
-To access the Segura Payment Gateway API, you need to obtain your API keys from the email sent to you upon registration. Follow these steps to generate the authorization key:
+To access the Segura Payment Gateway API, you need to obtain your API keys from the settings section sent on your Segura Dashboard. Follow these steps to generate the authorization key:
 
 ## 1. Retrieve your API Keys
-Obtain your `clientId` and `secret` from the registration email.
+Obtain your `clientId` and `clientSecret` from the registration email.
 
 ## 2. Concatenate the Keys
 Combine your keys in the following format:
 
 ```
-clientId:secret
+clientId:clientSecret
 ```
 
 ## 3. Convert the Concatenated String to Base64
@@ -22,9 +22,9 @@ import java.util.Base64;
 public class AuthKeyGenerator {
     public static void main(String[] args) {
         String clientId = "test_CORP-DQBTRN-707727-20250213";
-        String secret = "test_gn0GQeMp65YbZN7SoHZJs2Nk0j6jX8ofOkQ4z18Z7zO2aAXhBf_|09951";
+        String clientSecret = "test_gn0GQeMp65YbZN7SoHZJs2Nk0j6jX8ofOkQ4z18Z7zO2aAXhBf_|09951";
 
-        String authKey = clientId + ":" + secret;
+        String authKey = clientId + ":" + clientSecret;
 
         System.out.println("Auth Key: " + authKey);
 
