@@ -6,7 +6,7 @@ nav:
   - Javascript Library: payments.md
   - API Integration: process.md 
   - Cards: cards.md
-  - Segura Virtual Accounts: sva.md
+  # - Segura Virtual Accounts: sva.md
   - Conclusion: conclusion.md
 
   # - Get Status: status.md
