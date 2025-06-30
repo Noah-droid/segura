@@ -5,6 +5,7 @@ nav:
   - Api Keys: apis.md
   - Javascript Library: payments.md
   - API Integration: process.md 
+  - Mobile Money Integration: mobile.md 
   - Cards: cards.md
   # - Segura Virtual Accounts: sva.md
   - Conclusion: conclusion.md
