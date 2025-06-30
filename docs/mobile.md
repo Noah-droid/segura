@@ -103,6 +103,8 @@ curl -X GET https://api-dev.segura-pay.com/api/v1/payment-gateway/collection-lin
 ```
 
 > **Note:**  
+> Currently, only **XOF** (West African CFA franc) is supported for mobile money transactions.  
+> Please ensure all mobile money requests use `"currency": "XOF"` in the request body.
 > Use the `isNative` query parameter to control the collection method.  
 > - If `isNative` is `true`, you will receive a payment code for direct mobile money collection.  
 > - If `isNative` is `false`, you will receive a payment link to share with the customer.
