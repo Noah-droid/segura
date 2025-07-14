@@ -39,10 +39,6 @@ Use the following test cards for Mastercard, Visa, and Discover when testing Nai
 | DISCOVER    | 6011003179988686    | 01/39   | APPROVED   | Test approval |
 | DISCOVER    | 6011963280099774    | 05/39   | DECLINED   | Test decline  |
 
-> **Note:**  
-> - Use the appropriate expiry date to simulate approved, declined, or expired card scenarios.
-> - For security code, use **"100"** for Mastercard, Visa, and Discover.
-> - These cards are for Naira (NGN) integration testing only.
 
 #### Naira Card Status Codes
 
@@ -53,7 +49,10 @@ Use the following test cards for Mastercard, Visa, and Discover when testing Nai
 | 102  | NO_MATCH       |
 
 
-
+> **Note:**  
+> - Use the appropriate expiry date to simulate approved, declined, or expired card scenarios.
+> - For security code, use **"100"** for Mastercard, Visa, and Discover.
+> - These cards are for Naira (NGN) integration testing only.
 
 
 
