@@ -105,6 +105,66 @@ After transaction completion, Segura sends a webhook notification to your `callb
 
 <br>
 
+
+## Initialize Naira Mastercard Payment
+
+Use this endpoint to initialize a payment with Mastercard in Nigerian Naira (NGN).
+
+```
+POST https://api-dev.segura-pay.com/api/v1/payment-gateway/mastercard/initialize
+```
+
+### Request Headers
+| Key           | Value                |
+|---------------|----------------------|
+| `AuthKey`     | `<EncodedAuthKey>`   |
+| `Content-Type`| `application/json`   |
+
+### Request Body
+```json
+{
+  "amount": "string",            // Compulsory: Payment amount in kobo (e.g., "800" for ₦8.00)
+  "customerId": "string",        // Compulsory: Unique customer identifier
+  "currency": "NGN",             // Compulsory: Currency code (NGN)
+  "country": "NG",               // Compulsory: Country code (NG)
+  "callbackUrl": "string",       // Optional: Callback URL
+  "fullName": "string",          // Compulsory: Customer's full name
+  "phoneNumber": "string",       // Compulsory: Customer's phone with country code
+  "customerName": "string",      // Compulsory: Customer's name
+  "clientReference": "string",   // Optional: Your reference for this transaction
+  "clientID": "string"           // Compulsory: Your Test Client ID
+}
+```
+
+### Sample Request
+```bash
+curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/mastercard/initialize \
+-H "AuthKey:  <EncodedAuthKey>" \
+-H "Content-Type: application/json" \
+-d '{
+  "amount": "800",
+  "customerId": "customer101",
+  "currency": "NGN",
+  "country": "NG",
+  "fullName": "Noah James",
+  "phoneNumber": "+9876543210",
+  "customerName": "WEE",
+  "clientReference": "fuaidnadnddsaad",
+  "clientID": "TS.JXUMPG-725101-20250709"
+}'
+```
+
+> **Note:**  
+> - The `amount` should be in the smallest currency unit (kobo).
+> - The `currency` must be `"NGN"` for Naira Mastercard payments.
+> - The `clientID` is required for Mastercard transactions.
+
+
+
+
+
+<br>
+
 ## Check Payment Status
 
 ### Status Check Endpoint
