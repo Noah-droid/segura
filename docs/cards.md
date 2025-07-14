@@ -24,6 +24,34 @@
  <!-- **Failed Cards Test case 1:** -->
 
 
+### Naira Card Integration Test Cards
+
+Use the following test cards for Mastercard, Visa, and Discover when testing Naira (NGN) payments:
+
+| Card Type   | Card Number         | Expiry  | Status     | Notes         |
+|-------------|---------------------|---------|------------|---------------|
+| MASTERCARD  | 5123450000000008    | 01/39   | APPROVED   | Test approval |
+| MASTERCARD  | 2223000000000007    | 01/39   | APPROVED   | Test approval |
+| MASTERCARD  | 5111111111111118    | 05/39   | DECLINED   | Test decline  |
+| MASTERCARD  | 2223000000000023    | 04/27   | EXPIRED    | Expired card  |
+| VISA        | 4508750015741019    | 01/39   | APPROVED   | Test approval |
+| VISA        | 4012000033330026    | 05/39   | DECLINED   | Test decline  |
+| DISCOVER    | 6011003179988686    | 01/39   | APPROVED   | Test approval |
+| DISCOVER    | 6011963280099774    | 05/39   | DECLINED   | Test decline  |
+
+> **Note:**  
+> - Use the appropriate expiry date to simulate approved, declined, or expired card scenarios.
+> - For security code, use **"100"** for Mastercard, Visa, and Discover.
+> - These cards are for Naira (NGN) integration testing only.
+
+#### Naira Card Status Codes
+
+| Code | Meaning         |
+|------|----------------|
+| 100  | MATCH          |
+| 101  | NOT_PROCESSED  |
+| 102  | NO_MATCH       |
+
 
 
 
