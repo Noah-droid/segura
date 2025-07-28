@@ -7,6 +7,7 @@ nav:
   - API Integration: process.md 
   - Mobile Money Integration: mobile.md 
   - Cards: cards.md
+  - Apple Pay & Google Pay: apple-google.md
   # - Segura Virtual Accounts: sva.md
   - Conclusion: conclusion.md
 
