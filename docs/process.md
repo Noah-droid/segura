@@ -1,8 +1,12 @@
+
+
 # Segura Payment Gateway API Documentation
 
 ### Environment Endpoints
 - **Test Environment:** `https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize`
 - **Production Environment:** `https://api.segura-pay.com/api/v1/payment-gateway/initialize`
+- **Test Hosted Checkouts:** `https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize-request`
+- **Production Hosted Checkouts:** `https://api.segura-pay.com/api/v1/payment-gateway/initialize-request`
 
 
 ### Initialize Payment Endpoint
@@ -20,69 +24,198 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
 ### Request Body
 ```json
 {
-  "amount": "string",          // Compulsory: Payment amount
-  "customerId": "string",      // Compulsory: Unique customer identifier
-  "currency": "string",        // Compulsory: Currency code (e.g., USD)
-  "country": "string",         // Compulsory: Country code (e.g., NG)
-  "callbackUrl": "string",     // Optional: Callback URL
-  "customerName": "string",        // Compulsory: Customer's full name
-  "email": "string",           // Optional: Customer's email
-  "phoneNumber": "string",     // Compulsory: Customer's phone with country code
-  "clientReference": "string",
-  "clientId": "Your Test Client ID"
+  "amount": "string",            // Compulsory: Payment amount in cents (e.g., "800" for $8.00)
+  "currency": "USD",             
+  "country": "NG",               
+  "callbackUrl": "string",       // Optional: Callback URL
+  "fullName": "string",          
+  "phoneNumber": "string",       // Compulsory: Customer's phone with country code
+  "customerName": "string",      
+  "clientReference": "string",   // Compulsory: Generate a reference for this transaction
+  "narration": "Test Order Description",
+  "address": "100 Main st",
+  "paymentMethod": "card",
+  "city": "Seattle",
+  "state": "WA",
+  "zip_code": "98102",
+  "ipAddress": "1.1.1.1" 
 }
 ```
 
 ### Sample Request
 ```bash
 curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
--H "AuthKey:  <EncodedAuthKey>" \
+-H "AuthKey: <EncodedAuthKey>" \
+-H "Content-Type: application/json" \
+-d 'curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
+-H "AuthKey: <EncodedAuthKey>" \
 -H "Content-Type: application/json" \
 -d '{
-  "amount": "8",
-  "customerId": "customer101",
+  "amount": "800",
   "currency": "USD",
   "country": "NG",
   "callbackUrl": "https://localhost:3000/secure/payments",
   "fullName": "Noah James",
-  "email": "noah@yopmail.com",
-  "phoneNumber": "+9876543210"
+  "phoneNumber": "+9876543210",
+  "customerName": "Noah James",
+  "clientReference": "ref123456",
+  "narration": "Test Order Description",
+  "address": "100 Main st",
+  "paymentMethod": "card",
+  "city": "Seattle",
+  "state": "WA",
+  "zip_code": "98102",
+  "ipAddress": "1.1.1.1"
 }'
 ```
 
 ### Response
 ```json
 {
-  "requestTime": "2025-02-27T14:43:40.015052495",
+  "requestTime": "2025-08-03T21:02:50.644605309",
   "status": true,
   "code": 200,
   "message": "Payment initiated successfully",
   "data": {
-    "reference": "35ca5fa9-2848-47c1-ad78-44127751a24e",
-    "amount": 800,
+    "reference": "d238dbdb-6fd0-46bc-a325-cd4b551c0087",
+    "amount": 500,
+    "currency": "USD"
+  }
+}
+```
+
+### Hosted Checkouts Endpoint
+
+```
+POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize-request
+```
+
+### Request Headers
+| Key | Value |
+|-----|-------|
+| `AuthKey` | `<EncodedAuthKey>` |
+| `Content-Type` | `application/json` |
+
+### Request Body
+```json
+{
+  "amount": "string",            // Compulsory: Payment amount in cents (e.g., "800" for $8.00)
+  "currency": "USD",             
+  "country": "NG",               
+  "callbackUrl": "string",       // Optional: Callback URL
+  "fullName": "string",          
+  "phoneNumber": "string",       // Customer's phone with country code
+  "customerName": "string",      
+  "clientReference": "string",   // Compulsory: Generate a reference for this transaction
+  "narration": "Test Order Description",
+  "address": "100 Main st",
+  "paymentMethod": "card",
+  "city": "Seattle",
+  "state": "WA",
+  "zip_code": "98102",
+  "ipAddress": "1.1.1.1" 
+}
+```
+
+### Sample Request
+```bash
+curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize-request \
+-H "AuthKey: <EncodedAuthKey>" \
+-H "Content-Type: application/json" \
+-d 'curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
+-H "AuthKey: <EncodedAuthKey>" \
+-H "Content-Type: application/json" \
+-d '{
+  "amount": "800",
+  "currency": "USD",
+  "country": "NG",
+  "callbackUrl": "https://localhost:3000/secure/payments",
+  "fullName": "Noah James",
+  "phoneNumber": "+9876543210",
+  "customerName": "Noah James",
+  "clientReference": "ref123456",
+  "narration": "Test Order Description",
+  "address": "100 Main st",
+  "paymentMethod": "card",
+  "city": "Seattle",
+  "state": "WA",
+  "zip_code": "98102",
+  "ipAddress": "1.1.1.1"
+}''
+```
+
+### Response
+```json
+{
+  "requestTime": "2025-08-03T21:02:50.644605309",
+  "status": true,
+  "code": 200,
+  "message": "Payment initiated successfully",
+  "data": {
+    "reference": "d238dbdb-6fd0-46bc-a325-cd4b551c0087",
+    "amount": 500,
     "currency": "USD",
-    "redirectUrl": "https://segura-web-dev.segura-pay.com/secure/payments?orderreference=35ca5fa9-2848-47c1-ad78-44127751a24e"
+      "redirectUrl": "https://segura-web-dev.segura-pay.com/secure/payments?orderreference=fd77d0ee-e0cb-4cda-ad5a-90706b8f7888&sessionId=&paymentMethod=CARD"
+  }
+}
+```
+
+## Process Payment
+
+After initialization, call the process endpoint to complete the payment using the reference received from either initialization endpoint.
+
+```
+POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
+```
+
+**Request Body Example:**
+```json
+{
+  "pan": "5265967392134036",
+  "cvv": "123",
+  "expiry": "12/2099",
+  "expiryMonth": "12",
+  "expiryYear": "39",
+  "reference": "bba5e540-ea8d-4aa2-ab25-6bef31f6ef2d",
+  "customerdob": "1990-01-01",
+  "cardholdername": "John Doe",
+  "customerfirstname": "John",
+  "customerlastname": "Smith",
+  "customerpostcode": "98102",
+  "cardScheme": "VISA",
+  "cardType": "DEBIT"
+}
+```
+
+**Response Example:**
+```json
+{
+  "requestTime": "2025-08-03T21:54:44.379512092",
+  "status": true,
+  "code": 200,
+  "message": "Payment processed successfully",
+  "data": {
+    "success": false,
+    "currency": "USD",
+    "amount": 500,
+    "orderReference": "bba5e540-ea8d-4aa2-ab25-6bef31f6ef2d",
+    "status": "SUCCESS"
   }
 }
 ```
 
 ### Payment Flow
-1. Initialize payment using the endpoint above
-2. Redirect user to the `redirectUrl` received in the response:
-![alt text](image-4.png)
+1. Initialize payment using either the `initialize` or `initialize-request` endpoint.
+2. For `initialize-request`, redirect user to the `redirectUrl` received in the response:
+![alt text](image-6.png)
 3. User completes payment on the Segura payment page
 ![alt text](image-5.png)
 
-
-### Here is a demo where a user tries to make payment via our API
-
+### Demo
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IWQKdWizVac" title="Segura Gateway Integration Video" frameborder="0" allowfullscreen></iframe>
 
-<br>
-
-
 ### Webhook Notifications
-After transaction completion, Segura sends a webhook notification to your `callbackUrl` if provided with the following details:
+After transaction completion, Segura sends a webhook notification to your `callbackUrl` if provided:
 
 ```json
 {
@@ -101,88 +234,23 @@ After transaction completion, Segura sends a webhook notification to your `callb
    - Non-authenticated (no authorization headers required)
    - Respond with HTTP 200 OK status
 
-
-
-<br>
-
-
-## Initialize Naira Mastercard Payment
-
-Use this endpoint to initialize a payment with Mastercard in Nigerian Naira (NGN).
-
-```
-POST https://api-dev.segura-pay.com/api/v1/payment-gateway/mastercard/initialize
-```
-
-### Request Headers
-| Key           | Value                |
-|---------------|----------------------|
-| `AuthKey`     | `<EncodedAuthKey>`   |
-| `Content-Type`| `application/json`   |
-
-### Request Body
-```json
-{
-  "amount": "string",            // Compulsory: Payment amount in kobo (e.g., "800" for ₦8.00)
-  "customerId": "string",        // Compulsory: Unique customer identifier
-  "currency": "NGN",             // Compulsory: Currency code (NGN)
-  "country": "NG",               // Compulsory: Country code (NG)
-  "callbackUrl": "string",       // Optional: Callback URL
-  "fullName": "string",          // Compulsory: Customer's full name
-  "phoneNumber": "string",       // Compulsory: Customer's phone with country code
-  "customerName": "string",      // Compulsory: Customer's name
-  "clientReference": "string",   // Optional: Your reference for this transaction
-  "clientID": "string"           // Compulsory: Your Test Client ID
-}
-```
-
-### Sample Request
-```bash
-curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/mastercard/initialize \
--H "AuthKey:  <EncodedAuthKey>" \
--H "Content-Type: application/json" \
--d '{
-  "amount": "800",
-  "customerId": "customer101",
-  "currency": "NGN",
-  "country": "NG",
-  "fullName": "Noah James",
-  "phoneNumber": "+9876543210",
-  "customerName": "WEE",
-  "clientReference": "fuaidnadnddsaad",
-  "clientID": "TS.JXUMPG-725101-20250709"
-}'
-```
-
-> **Note:**  
-> - The `amount` should be in the smallest currency unit (kobo).
-> - The `currency` must be `"NGN"` for Naira Mastercard payments.
-> - The `clientID` is required for Mastercard transactions.
-
-
-
-
-
-<br>
-
 ## Check Payment Status
 
-### Status Check Endpoint
 ```
 GET https://api-dev.segura-pay.com/api/v1/payment-gateway/status/{reference}
 ```
 
-Replace `{reference}` with the reference received from payment initialization.
+Replace `{reference}` with the reference from payment initialization.
 
 ### Request Headers
 | Key | Value |
 |-----|-------|
-| `AuthKey` | ` <EncodedAuthKey>` |
+| `AuthKey` | `<EncodedAuthKey>` |
 
 ### Sample Status Check
 ```bash
 curl -X GET https://api-dev.segura-pay.com/api/v1/payment-gateway/status/35ca5fa9-2848-47c1-ad78-44127751a24e \
--H "AuthKey:  <EncodedAuthKey>"
+-H "AuthKey: <EncodedAuthKey>"
 ```
 
 ## Important Notes
@@ -195,5 +263,7 @@ curl -X GET https://api-dev.segura-pay.com/api/v1/payment-gateway/status/35ca5fa
 - Always implement webhook handling for reliable payment status updates
 - Webhook endpoints must be publicly accessible
 - Return HTTP 200 OK to acknowledge webhook receipt
+- The `initialize` endpoint is for programmatic payment flows, while `initialize-request` (Hosted Checkouts) provides a redirect-based checkout experience
 
 See [Test Cards](./cards.md) for test payment data to use during integration.
+
