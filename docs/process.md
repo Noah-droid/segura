@@ -176,7 +176,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
   "expiry": "12/2099",
   "expiryMonth": "12",
   "expiryYear": "39",
-  "reference": "bba5e540-ea8d-4aa2-ab25-6bef31f6ef2d",
+  "reference": "bba5e540-ea8d-4aa2-ab25-6bef31f6ef2d",   //pass in reference from the initialized request
   "customerdob": "1990-01-01",
   "cardholdername": "John Doe",
   "customerfirstname": "John",
