@@ -24,12 +24,12 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
 ### Request Body
 ```json
 {
-  "amount": "string",            // Compulsory: Payment amount in cents (e.g., "800" for $8.00)
+  "amount": "string",            // Payment amount in cents (e.g., "800" for $8.00)
   "currency": "USD",             
   "country": "NG",               
   "callbackUrl": "string",       // Optional: Callback URL
   "fullName": "string",          
-  "phoneNumber": "string",       // Compulsory: Customer's phone with country code
+  "phoneNumber": "string",       // Customer's phone with country code
   "customerName": "string",      
   "clientReference": "string",   // Compulsory: Generate a reference for this transaction
   "narration": "Test Order Description",
@@ -99,7 +99,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize-request
 ### Request Body
 ```json
 {
-  "amount": "string",            // Compulsory: Payment amount in cents (e.g., "800" for $8.00)
+  "amount": "string",            // Payment amount in cents (e.g., "800" for $8.00)
   "currency": "USD",             
   "country": "NG",               
   "callbackUrl": "string",       // Optional: Callback URL
