@@ -28,6 +28,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
   "currency": "USD",             
   "country": "NG",               
   "callbackUrl": "string",       // Optional: Callback URL
+  "returnUrl":"string",         // Optional: Return Url
   "fullName": "string",          
   "phoneNumber": "string",       // Customer's phone with country code
   "customerName": "string",      
@@ -55,6 +56,7 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
   "currency": "USD",
   "country": "NG",
   "callbackUrl": "https://localhost:3000/secure/payments",
+  "returnUrl": "https://localhost:3000/secure/payments",
   "fullName": "Noah James",
   "phoneNumber": "+9876543210",
   "customerName": "Noah James",
