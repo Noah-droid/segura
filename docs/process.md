@@ -5,8 +5,9 @@
 ### Environment Endpoints
 - **Test Environment:** `https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize`
 - **Production Environment:** `https://api.segura-pay.com/api/v1/payment-gateway/initialize`
-- **Test Hosted Checkouts:** `https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize-request`
-- **Production Hosted Checkouts:** `https://api.segura-pay.com/api/v1/payment-gateway/initialize-request`
+
+- **Test Hosted Checkouts:** `https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-payment`
+- **Production Hosted Checkouts:** `https://api.segura-pay.com/api/v1/payment-gateway/hosted-payment`
 
 
 ### Initialize Payment Endpoint
@@ -48,9 +49,6 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
 curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
 -H "AuthKey: <EncodedAuthKey>" \
 -H "Content-Type: application/json" \
--d 'curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
--H "AuthKey: <EncodedAuthKey>" \
--H "Content-Type: application/json" \
 -d '{
   "amount": "800",
   "currency": "USD",
@@ -89,7 +87,7 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
 ### Hosted Checkouts Endpoint
 
 ```
-POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize-request
+POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-payment
 ```
 
 ### Request Headers
@@ -105,6 +103,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize-request
   "currency": "USD",             
   "country": "NG",               
   "callbackUrl": "string",       // Optional: Callback URL
+  "returnUrl":"string",
   "fullName": "string",          
   "phoneNumber": "string",       // Customer's phone with country code
   "customerName": "string",      
@@ -121,10 +120,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize-request
 
 ### Sample Request
 ```bash
-curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize-request \
--H "AuthKey: <EncodedAuthKey>" \
--H "Content-Type: application/json" \
--d 'curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
+curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-payment \
 -H "AuthKey: <EncodedAuthKey>" \
 -H "Content-Type: application/json" \
 -d '{
@@ -132,6 +128,7 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize-re
   "currency": "USD",
   "country": "NG",
   "callbackUrl": "https://localhost:3000/secure/payments",
+  "returnUrl": "https://google.com",
   "fullName": "Noah James",
   "phoneNumber": "+9876543210",
   "customerName": "Noah James",
@@ -143,7 +140,7 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize-re
   "state": "WA",
   "zip_code": "98102",
   "ipAddress": "1.1.1.1"
-}''
+}'
 ```
 
 ### Response
