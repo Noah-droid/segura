@@ -3,7 +3,7 @@ site_name: Segura Docs
 nav:
   - Home: index.md
   - Api Keys: apis.md
-  - Javascript Library: payments.md
+  # - Javascript Library: payments.md
   - API Integration: process.md 
   - Mobile Money Integration: mobile.md 
   - Cards: cards.md
