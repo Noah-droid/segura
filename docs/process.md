@@ -25,7 +25,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
 ### Request Body
 ```json
 {
-  "amount": "string",            // Payment amount in cents (e.g., "800" for $8.00)
+  "amount": "string",           
   "currency": "USD",             
   "country": "NG",               
   "callbackUrl": "string",       // Optional: Callback URL
@@ -99,7 +99,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-payment
 ### Request Body
 ```json
 {
-  "amount": "string",            // Payment amount in cents (e.g., "800" for $8.00)
+  "amount": "string",            
   "currency": "USD",             
   "country": "NG",               
   "callbackUrl": "string",       // Optional: Callback URL
@@ -256,13 +256,13 @@ curl -X GET https://api-dev.segura-pay.com/api/v1/payment-gateway/status/35ca5fa
 - The `redirectUrl` is a secure Segura-hosted payment page where customers enter their payment details
 - Always store the `reference` to check payment status later
 - Monitor the payment status endpoint to confirm successful transactions
-- All amounts are processed in the smallest currency unit (e.g., cents for USD)
+<!-- - All amounts are processed in the smallest currency unit (e.g., cents for USD) -->
 - Use test environment for development and testing
 - Switch to production environment for live transactions
 - Always implement webhook handling for reliable payment status updates
 - Webhook endpoints must be publicly accessible
 - Return HTTP 200 OK to acknowledge webhook receipt
-- The `initialize` endpoint is for programmatic payment flows, while `initialize-request` (Hosted Checkouts) provides a redirect-based checkout experience
+- The `initialize` endpoint is for programmatic payment flows, while `hosted-payment` (Hosted Checkouts) provides a redirect-based checkout experience
 
 See [Test Cards](./cards.md) for test payment data to use during integration.
 
