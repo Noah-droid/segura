@@ -204,8 +204,8 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
 ```
 
 ### Payment Flow
-1. Initialize payment using either the `initialize` or `initialize-request` endpoint.
-2. For `initialize-request`, redirect user to the `redirectUrl` received in the response:
+1. Initialize payment using either the `initialize` or `hosted-payment` endpoint.
+2. For `hosted-payment`, redirect user to the `redirectUrl` received in the response:
 ![alt text](image-6.png)
 3. User completes payment on the Segura payment page
 ![alt text](image-5.png)
