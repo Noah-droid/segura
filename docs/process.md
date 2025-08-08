@@ -84,6 +84,85 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
 }
 ```
 
+## Process Payment
+
+After initialization, call the process endpoint to complete the payment using the reference received from either initialization endpoint.
+
+```
+POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
+```
+
+**Request Body Example:**
+```json
+{
+  "pan": "5265967392134036",
+  "cvv": "123",
+  "expiry": "12/2099",
+  "expiryMonth": "12",
+  "expiryYear": "39",
+  "reference": "bba5e540-ea8d-4aa2-ab25-6bef31f6ef2d",   //pass in reference from the initialized request
+  "customerdob": "1990-01-01",
+  "cardholdername": "John Doe",
+  "customerfirstname": "John",
+  "customerlastname": "Smith",
+  "customerpostcode": "98102",
+  "cardScheme": "VISA",
+  "cardType": "DEBIT"
+}
+```
+
+**Response Example:**
+```json
+{
+  "requestTime": "2025-08-03T21:54:44.379512092",
+  "status": true,
+  "code": 200,
+  "message": "Payment processed successfully",
+  "data": {
+    "success": false,
+    "currency": "USD",
+    "amount": 500,
+    "orderReference": "bba5e540-ea8d-4aa2-ab25-6bef31f6ef2d",
+    "status": "SUCCESS"
+  }
+}
+```
+
+### Payment Flow
+1. Initialize payment using either the `initialize` or `hosted-payment` endpoint.
+2. For `hosted-payment`, redirect user to the `redirectUrl` received in the response:
+![alt text](image-6.png)
+3. User completes payment on the Segura payment page
+![alt text](image-5.png)
+
+### Demo
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IWQKdWizVac" title="Segura Gateway Integration Video" frameborder="0" allowfullscreen></iframe>
+
+### Webhook Notifications
+After transaction completion, Segura sends a webhook notification to your `callbackUrl` if provided:
+
+```json
+{
+  "reference": "35ca5fa9-2848-47c1-ad78-44127751a24e",
+  "status": "successful", // or "failed"
+  "amount": 800,
+  "currency": "USD",
+  "customerReference": "customer101",
+  "transactionTime": "2025-02-27T14:43:40.015Z"
+}
+```
+
+### Webhook Requirements
+1. Your `callbackUrl` should be:
+   - Publicly accessible
+   - Non-authenticated (no authorization headers required)
+   - Respond with HTTP 200 OK status
+
+
+
+
+
+
 ### Hosted Checkouts Endpoint
 
 ```
@@ -159,79 +238,6 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-paymen
 }
 ```
 
-## Process Payment
-
-After initialization, call the process endpoint to complete the payment using the reference received from either initialization endpoint.
-
-```
-POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
-```
-
-**Request Body Example:**
-```json
-{
-  "pan": "5265967392134036",
-  "cvv": "123",
-  "expiry": "12/2099",
-  "expiryMonth": "12",
-  "expiryYear": "39",
-  "reference": "bba5e540-ea8d-4aa2-ab25-6bef31f6ef2d",   //pass in reference from the initialized request
-  "customerdob": "1990-01-01",
-  "cardholdername": "John Doe",
-  "customerfirstname": "John",
-  "customerlastname": "Smith",
-  "customerpostcode": "98102",
-  "cardScheme": "VISA",
-  "cardType": "DEBIT"
-}
-```
-
-**Response Example:**
-```json
-{
-  "requestTime": "2025-08-03T21:54:44.379512092",
-  "status": true,
-  "code": 200,
-  "message": "Payment processed successfully",
-  "data": {
-    "success": false,
-    "currency": "USD",
-    "amount": 500,
-    "orderReference": "bba5e540-ea8d-4aa2-ab25-6bef31f6ef2d",
-    "status": "SUCCESS"
-  }
-}
-```
-
-### Payment Flow
-1. Initialize payment using either the `initialize` or `hosted-payment` endpoint.
-2. For `hosted-payment`, redirect user to the `redirectUrl` received in the response:
-![alt text](image-6.png)
-3. User completes payment on the Segura payment page
-![alt text](image-5.png)
-
-### Demo
-<iframe width="560" height="315" src="https://www.youtube.com/embed/IWQKdWizVac" title="Segura Gateway Integration Video" frameborder="0" allowfullscreen></iframe>
-
-### Webhook Notifications
-After transaction completion, Segura sends a webhook notification to your `callbackUrl` if provided:
-
-```json
-{
-  "reference": "35ca5fa9-2848-47c1-ad78-44127751a24e",
-  "status": "successful", // or "failed"
-  "amount": 800,
-  "currency": "USD",
-  "customerReference": "customer101",
-  "transactionTime": "2025-02-27T14:43:40.015Z"
-}
-```
-
-### Webhook Requirements
-1. Your `callbackUrl` should be:
-   - Publicly accessible
-   - Non-authenticated (no authorization headers required)
-   - Respond with HTTP 200 OK status
 
 ## Check Payment Status
 
@@ -256,7 +262,6 @@ curl -X GET https://api-dev.segura-pay.com/api/v1/payment-gateway/status/35ca5fa
 - The `redirectUrl` is a secure Segura-hosted payment page where customers enter their payment details
 - Always store the `reference` to check payment status later
 - Monitor the payment status endpoint to confirm successful transactions
-<!-- - All amounts are processed in the smallest currency unit (e.g., cents for USD) -->
 - Use test environment for development and testing
 - Switch to production environment for live transactions
 - Always implement webhook handling for reliable payment status updates
