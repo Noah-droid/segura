@@ -26,7 +26,8 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
 ```json
 {
   "amount": "string",           
-  "currency": "USD",             
+  "currency": "USD",
+  "email": "test@example.com",             
   "country": "NG",               
   "callbackUrl": "string",       // Optional: Callback URL
   "returnUrl":"string",         // Optional: Return Url
@@ -53,6 +54,7 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
   "amount": "800",
   "currency": "USD",
   "country": "NG",
+   "email": "test@example.com",     
   "callbackUrl": "https://localhost:3000/secure/payments",
   "returnUrl": "https://localhost:3000/secure/payments",
   "fullName": "Noah James",
@@ -179,7 +181,8 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-payment
 ```json
 {
   "amount": "string",            
-  "currency": "USD",             
+  "currency": "USD",   
+  "email": "test@example.com",               
   "country": "NG",               
   "callbackUrl": "string",       // Optional: Callback URL
   "returnUrl":"string",
@@ -206,6 +209,7 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-paymen
   "amount": "800",
   "currency": "USD",
   "country": "NG",
+  "email": "test@example.com",     
   "callbackUrl": "https://localhost:3000/secure/payments",
   "returnUrl": "https://google.com",
   "fullName": "Noah James",
