@@ -10,6 +10,8 @@
 - **Production Hosted Checkouts:** `https://api.segura-pay.com/api/v1/payment-gateway/hosted-payment`
 
 
+
+
 ### Initialize Payment Endpoint
 
 ```
@@ -263,6 +265,7 @@ curl -X GET https://api-dev.segura-pay.com/api/v1/payment-gateway/status/35ca5fa
 ```
 
 ## Important Notes
+- Currencies we deal with currently for Payments are `USD`, `GBP` and `EUR`
 - The `redirectUrl` is a secure Segura-hosted payment page where customers enter their payment details
 - Always store the `reference` to check payment status later
 - Monitor the payment status endpoint to confirm successful transactions
