@@ -32,8 +32,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
   "email": "test@example.com",             
   "country": "NG",               
   "callbackUrl": "string",       // Optional: Callback URL
-  "returnUrl":"string",         // Optional: Return Url
-  "fullName": "string",          
+  "returnUrl":"string",         // Optional: Return Url         
   "phoneNumber": "string",       // Customer's phone with country code
   "customerName": "string",      
   "clientReference": "string",   // Compulsory: Generate a reference for this transaction
@@ -60,7 +59,6 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
    "email": "test@example.com",     
   "callbackUrl": "https://localhost:3000/secure/payments",
   "returnUrl": "https://localhost:3000/secure/payments",
-  "fullName": "Noah James",
   "phoneNumber": "+9876543210",
   "customerName": "Noah James",
   "clientReference": "ref123456",
@@ -188,8 +186,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-payment
   "email": "test@example.com",               
   "country": "NG",               
   "callbackUrl": "string",       // Optional: Callback URL
-  "returnUrl":"string",
-  "fullName": "string",          
+  "returnUrl":"string",       
   "phoneNumber": "string",       // Customer's phone with country code
   "customerName": "string",      
   "clientReference": "string",   // Compulsory: Generate a reference for this transaction
@@ -215,7 +212,6 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-paymen
   "email": "test@example.com",     
   "callbackUrl": "https://localhost:3000/secure/payments",
   "returnUrl": "https://google.com",
-  "fullName": "Noah James",
   "phoneNumber": "+9876543210",
   "customerName": "Noah James",
   "clientReference": "ref123456",
