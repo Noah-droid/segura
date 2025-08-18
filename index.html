@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <meta name="viewport" content="initial-scale=1,width=device-width"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <script src="https://keepfxdev-bucket.fra1.cdn.digitaloceanspaces.com/segura-gateway-v1.js"></script>
+
+     <!-- OR use production library environment script -->
+    <!-- <script src="https://keepfxdev-bucket.fra1.cdn.digitaloceanspaces.com/segura-gateway-prod.js"></script> -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize the SeguraGateway
+        const gateway = new Segura({
+          authKey: "VFMuSlhVTVBHLTcyNTEwMS0yMDI1MDcwOTpUUy5rNjF5ZGlqQUgya0JZSXdRU1d6UnFwYm9nVVpNRHd2Wk9LWUJ3U1hHWUp5MTNZUkFOaiUpNTE5MjI=", // Required
+          callbackUrl: "https://yourwebsite.com/payment-callback", // Optional, but recommended for webhook notifications 
+          isNative: true, // Optional, defaults to true - determines whether to use Segura's UI or handle it from your end
+        });
+
+        // Attach event listener to the payment button
+        document.getElementById("payButton").addEventListener("click", async function () {
+          await gateway.startPayment({
+            amount: 10,
+            customerId: "customer123",
+            currency: "USD",
+            country: "NG", 
+            customerName: "Abayomi Chinedu", 
+            email: "abayomichinedu@email.com", 
+            phoneNumber: "08123121234",
+            "customerName": "Noah James",
+            "clientReference": "ref123456",
+            "narration": "Test Order Description",
+            "address": "100 Main st",
+            "paymentMethod": "card",
+            "city": "Seattle",
+            "state": "WA",
+            "zip_code": "98102",
+            "ipAddress": "1.1.1.1"
+            // pass card details if isNative is False
+            // cvv: "123",
+            // pan: "5591390000000504",
+            // expiry: "12/2025" //  MM/YYYY
+
+          });
+        });
+      });
+    </script>
+  </head>
+  <body class="choice st-inputs-style st-blocks-style st-notify-style">
+    <button id="payButton">Pay Now</button>
+  </body>
+</html>

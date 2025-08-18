@@ -47,6 +47,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
 }
 ```
 
+
 ### Sample Request
 ```bash
 curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
