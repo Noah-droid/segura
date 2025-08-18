@@ -27,22 +27,22 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
 ### Request Body
 ```json
 {
-  "amount": "string",           
-  "currency": "USD",
-  "email": "test@example.com",             
-  "country": "NG",               
+  "amount": "string",           // 5 as the minimum value
+  "currency": "USD",            // 3-Letter ISO Code format (Supported Currencies)
+  "email": "test@example.com",   // Valid Email     
+  "country": "NG",               // 2-letter ISO code
   "callbackUrl": "string",       // Optional: Callback URL
-  "returnUrl":"string",         // Optional: Return Url         
-  "phoneNumber": "string",       // Customer's phone with country code
+  "returnUrl":"string",           // Optional: Return Url         
+  "phoneNumber": "string",       // Phone with country code
   "customerName": "string",      
   "clientReference": "string",   // Compulsory: Generate a reference for this transaction
-  "narration": "Test Order Description",
-  "address": "100 Main st",
-  "paymentMethod": "card",
-  "city": "Seattle",
-  "state": "WA",
-  "zip_code": "98102",
-  "ipAddress": "1.1.1.1" 
+  "narration": "Test Order Description", // Minimum 5 characters
+  "address": "100 Main st",       // Minimum 10 Characters
+  "paymentMethod": "card",     
+  "city": "Seattle",  // Minimum 2 Characters (City Abreviations can be used also)
+  "state": "WA",       // Minimum 2 Characters (State Abreviations can be used also)
+  "zip_code": "98102",  // Minimum 4 Characters
+  "ipAddress": "1.1.1.1"  // Maximum 7 Characters
 }
 ```
 
@@ -181,22 +181,22 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-payment
 ### Request Body
 ```json
 {
-  "amount": "string",            
-  "currency": "USD",   
-  "email": "test@example.com",               
-  "country": "NG",               
+  "amount": "string",           // 5 as the minimum value
+  "currency": "USD",            // 3-Letter ISO Code format (Supported Currencies)
+  "email": "test@example.com",   // Valid Email     
+  "country": "NG",               // 2-letter ISO code
   "callbackUrl": "string",       // Optional: Callback URL
-  "returnUrl":"string",       
-  "phoneNumber": "string",       // Customer's phone with country code
+  "returnUrl":"string",           // Optional: Return Url         
+  "phoneNumber": "string",       // Phone with country code
   "customerName": "string",      
   "clientReference": "string",   // Compulsory: Generate a reference for this transaction
-  "narration": "Test Order Description",
-  "address": "100 Main st",
-  "paymentMethod": "card",
-  "city": "Seattle",
-  "state": "WA",
-  "zip_code": "98102",
-  "ipAddress": "1.1.1.1" 
+  "narration": "Test Order Description", // Minimum 5 characters
+  "address": "100 Main st",       // Minimum 10 Characters
+  "paymentMethod": "card",     
+  "city": "Seattle",  // Minimum 2 Characters (City Abreviations can be used also)
+  "state": "WA",       // Minimum 2 Characters (State Abreviations can be used also)
+  "zip_code": "98102",  // Minimum 4 Characters
+  "ipAddress": "1.1.1.1"  // Maximum 7 Characters
 }
 ```
 
