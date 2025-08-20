@@ -18,10 +18,10 @@ To begin using the Segura Payment Gateway API:
 3. **Authenticate** using the provided methods.
 4. **Integrate** the API endpoints into your application as documented.
 
-## Implementation Methods
+## Implementation Method
 
-You can implement the Segura Payment Gateway into your application using two methods:
+You can implement the Segura Payment Gateway into your application using this method:
 
-1. **API Integration:** Directly integrate our API endpoints into your backend to process payments.
-2. **JavaScript Integration:** Use our JavaScript library to seamlessly integrate payment processing into your frontend application.
+ **API Integration:** Directly integrate our API endpoints into your backend to process payments.
+<!-- 2. **JavaScript Integration:** Use our JavaScript library to seamlessly integrate payment processing into your frontend application. -->
 
