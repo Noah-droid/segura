@@ -196,7 +196,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-payment
   "city": "Seattle",  // Minimum 2 Characters (City Abreviations can be used also)
   "state": "WA",       // Minimum 2 Characters (State Abreviations can be used also)
   "zip_code": "98102",  // Minimum 4 Characters
-  "ipAddress": "1.1.1.1"  // Maximum 7 Characters
+  "ipAddress": "1.1.1.1"  // Minimum 7 Characters
 }
 ```
 
