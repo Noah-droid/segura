@@ -242,6 +242,89 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-paymen
 ```
 
 
+### Initialize Payment Endpoint (Bank Transfer)
+
+- Please note this is only available on Test Environment
+
+```
+POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
+```
+
+### Request Headers
+| Key | Value |
+|-----|-------|
+| `AuthKey` | `<EncodedAuthKey>` |
+| `Content-Type` | `application/json` |
+
+### Request Body
+```json
+{
+  "amount": "string",           // 5 as the minimum value
+  "currency": "GBP",            // GBP or EUR are the only currencies accepted for Bank Transfer
+  "email": "test@example.com",   // Valid Email     
+  "country": "NG",               // 2-letter ISO code
+  "callbackUrl": "string",       // Optional: Callback URL
+  "returnUrl":"string",           // Optional: Return Url         
+  "phoneNumber": "string",       // Phone with country code
+  "customerName": "string",      
+  "clientReference": "string",   // Compulsory: Generate a reference for this transaction
+  "narration": "Test Order Description", // Minimum 5 characters
+  "address": "100 Main st",       // Minimum 10 Characters
+  "paymentMethod": "BANK_TRANSFER",     // Use BANK_TRANSFER as the value in paymentMethod
+  "city": "Seattle",  // Minimum 2 Characters (City Abreviations can be used also)
+  "state": "WA",       // Minimum 2 Characters (State Abreviations can be used also)
+  "zip_code": "98102",  // Minimum 4 Characters
+  "ipAddress": "1.1.1.1"   // Minimum 7 Characters
+}
+```
+
+
+### Sample Request
+```bash
+curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
+-H "AuthKey: <EncodedAuthKey>" \
+-H "Content-Type: application/json" \
+-d '{
+  "amount": "800",
+  "currency": "GBP",
+  "country": "NG",
+   "email": "test@example.com",     
+  "callbackUrl": "https://localhost:3000/secure/payments",
+  "returnUrl": "https://localhost:3000/secure/payments",
+  "phoneNumber": "+9876543210",
+  "customerName": "Noah James",
+  "clientReference": "ref123456",
+  "narration": "Test Order Description",
+  "address": "100 Main st",
+  "paymentMethod": "BANK_TRANSFER", 
+  "city": "Seattle",
+  "state": "WA",
+  "zip_code": "98102",
+  "ipAddress": "1.1.1.1"
+}'
+```
+
+### Response
+```json
+{
+    "requestTime": "2025-08-20T16:07:14.360583593",
+    "status": true,
+    "code": 200,
+    "message": "Payment initiated successfully",
+    "data": {
+        "reference": "499bffdc-cc6b-4adb-9351-74434ea864f7",
+        "amount": 500,
+        "currency": "GBP",
+        "redirectUrl": "https://secure.plaid.com/hl/ls11sq9oprn09299p4n6p2rqo4soq81496",
+        "plaidToken": "link-sandbox-66fd4bce-a547-44c9-a1c7-edb9fbd36941"
+    }
+}
+```
+
+
+
+
+
 ## Check Payment Status
 
 ```
@@ -263,6 +346,7 @@ curl -X GET https://api-dev.segura-pay.com/api/v1/payment-gateway/status/35ca5fa
 
 ## Important Notes
 - Currencies we deal with currently for Payments are `USD`, `GBP` and `EUR`
+- `GBP` or `EUR` are the only currencies accepted for Bank Transfer
 - The `redirectUrl` is a secure Segura-hosted payment page where customers enter their payment details
 - Always store the `reference` to check payment status later
 - Monitor the payment status endpoint to confirm successful transactions
