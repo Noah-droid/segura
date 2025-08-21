@@ -166,7 +166,7 @@ After transaction completion, Segura sends a webhook notification to your `callb
 
 
 
-### Hosted Checkouts Endpoint
+## Hosted Checkouts Endpoint
 
 ```
 POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-payment
@@ -242,7 +242,7 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-paymen
 ```
 
 
-### Initialize Payment Endpoint (Bank Transfer)
+## Initialize Payment Endpoint (Bank Transfer)
 
 - Please note this is only available on Test Environment
 
@@ -321,8 +321,9 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
 }
 ```
 
+#### For integrating Bank Transfer payment method from the client side, check the links below 
 
-
+[React Native](https://plaid.com/docs/link/react-native/), [IOS](https://plaid.com/docs/link/ios/), [Android](https://plaid.com/docs/link/android/), [Web](https://plaid.com/docs/link/web/)
 
 
 ## Check Payment Status
