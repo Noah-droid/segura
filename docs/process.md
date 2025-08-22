@@ -288,7 +288,7 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
   "amount": "800",
   "currency": "GBP",
   "country": "UK",
-   "email": "test@example.com",     
+  "email": "test@example.com",     
   "callbackUrl": "https://localhost:3000/secure/payments",
   "returnUrl": "https://localhost:3000/secure/payments",
   "phoneNumber": "+9876543210",
