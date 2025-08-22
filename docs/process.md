@@ -262,7 +262,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
   "amount": "string",           // 5 as the minimum value
   "currency": "GBP",            // GBP or EUR are the only currencies accepted for Bank Transfer
   "email": "test@example.com",   // Valid Email     
-  "country": "NG",               // 2-letter ISO code
+  "country": "UK",               // 2-letter ISO code
   "callbackUrl": "string",       // Optional: Callback URL
   "returnUrl":"string",           // Optional: Return Url         
   "phoneNumber": "string",       // Phone with country code
@@ -287,7 +287,7 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
 -d '{
   "amount": "800",
   "currency": "GBP",
-  "country": "NG",
+  "country": "UK",
    "email": "test@example.com",     
   "callbackUrl": "https://localhost:3000/secure/payments",
   "returnUrl": "https://localhost:3000/secure/payments",
