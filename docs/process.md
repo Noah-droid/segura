@@ -142,7 +142,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ygJQscW2M-Y" title="Segura Gateway Integration Video" frameborder="0" allowfullscreen></iframe>
 
 ### Webhook Notifications
-After transaction completion, Segura sends a webhook notification to your `callbackUrl` if provided:
+After transaction completion, Segura sends a webhook notification to your `callbackUrl` if provided. For example:
 
 ```json
 {
