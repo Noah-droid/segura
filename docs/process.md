@@ -146,12 +146,19 @@ After transaction completion, Segura sends a webhook notification to your `callb
 
 ```json
 {
-  "reference": "35ca5fa9-2848-47c1-ad78-44127751a24e",
-  "status": "successful", // or "failed"
-  "amount": 800,
-  "currency": "USD",
-  "customerReference": "customer101",
-  "transactionTime": "2025-02-27T14:43:40.015Z"
+  "customerName":"Noah Droid",
+  "customerId":"test_CORP-DQBTRN-707727-20250213",
+  "cardScheme":null,
+  "cardType":null,
+  "countryCode":"UK",
+  "currency":"GBP",
+  "amount":100000,
+  "orderReference":"1e3ddbe5-4a50-4a8b-a481-1494ba78c06b",
+  "clientReference":"e6c13f43-9125-4cf3-97f9-2f761516c985",
+  "paymentStatus":"SUCCESS",
+  "maskedPan":null,
+  "clientId":"test_CORP-DQBTRN-707727-20250213",
+  "createdAt":1756465636.000000000
 }
 ```
 
