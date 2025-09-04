@@ -89,7 +89,7 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
 
 ## Process Payment
 
-After initialization, call the process endpoint to complete the payment using the reference received from either initialization endpoint.
+After initialization, call the process endpoint to complete the payment using the reference received from the initialization endpoint.
 
 ```
 POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
