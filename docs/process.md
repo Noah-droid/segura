@@ -251,7 +251,7 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-paymen
 
 ## Initialize Payment Endpoint (Bank Transfer)
 
-- Please note this is only available on Test Environment
+
 
 ```
 POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
