@@ -34,7 +34,8 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
   "callbackUrl": "string",       // Optional: Callback URL
   "returnUrl":"string",           // Optional: Return Url         
   "phoneNumber": "string",       // Phone with country code
-  "customerName": "string",      
+  "customerName": "string",  
+  "customerId": "string",
   "clientReference": "string",   // Compulsory: Generate a reference for this transaction
   "narration": "Test Order Description", // Minimum 5 characters
   "address": "100 Main st",       // Minimum 10 Characters
@@ -56,11 +57,12 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
   "amount": "800",
   "currency": "USD",
   "country": "NG",
-   "email": "test@example.com",     
+  "email": "test@example.com",     
   "callbackUrl": "https://localhost:3000/secure/payments",
   "returnUrl": "https://localhost:3000/secure/payments",
   "phoneNumber": "+9876543210",
   "customerName": "Noah James",
+  "customerId": "test_CORP-SB1LHS-102211-20250526",
   "clientReference": "ref123456",
   "narration": "Test Order Description",
   "address": "100 Main st",
@@ -195,7 +197,8 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-payment
   "callbackUrl": "string",       // Optional: Callback URL
   "returnUrl":"string",           // Optional: Return Url         
   "phoneNumber": "string",       // Phone with country code
-  "customerName": "string",      
+  "customerName": "string",   
+  "customerId": "string",   
   "clientReference": "string",   // Compulsory: Generate a reference for this transaction
   "narration": "Test Order Description", // Minimum 5 characters
   "address": "100 Main st",       // Minimum 10 Characters
@@ -221,6 +224,7 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-paymen
   "returnUrl": "https://google.com",
   "phoneNumber": "+9876543210",
   "customerName": "Noah James",
+  "customerId": "test_CORP-SB1LHS-102211-20250526",
   "clientReference": "ref123456",
   "narration": "Test Order Description",
   "address": "100 Main st",
