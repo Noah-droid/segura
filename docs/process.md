@@ -334,6 +334,9 @@ curl -X POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize \
 }
 ```
 
+
+
+
 #### For integrating Bank Transfer payment method from the client side, check the links below 
 
 [React Native](https://plaid.com/docs/link/react-native/), [IOS](https://plaid.com/docs/link/ios/), [Android](https://plaid.com/docs/link/android/), [Web](https://plaid.com/docs/link/web/)
@@ -361,7 +364,8 @@ curl -X GET https://api-dev.segura-pay.com/api/v1/payment-gateway/status/35ca5fa
 ## Important Notes
 - Currencies we deal with currently for Payments are `USD`, `GBP` and `EUR`
 - `GBP` or `EUR` are the only currencies accepted for Bank Transfer Payment Method
-- The `redirectUrl` is a secure Segura-hosted payment page where customers enter their payment details
+<!-- - The `redirectUrl` is a secure Segura-hosted payment page where customers enter their payment details -->
+- Redirect your user to the `redirectUrl` returned in the response of `hosted-payment` and payment initialization using `BANK_TRANSFER` as payment method
 - Always store the `reference` to check payment status later
 - Monitor the payment status endpoint to confirm successful transactions
 - Use test environment for development and testing
