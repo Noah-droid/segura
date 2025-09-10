@@ -36,7 +36,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
   "phoneNumber": "string",       // Phone with country code
   "customerName": "string",  
   "customerId": "string",
-  "clientReference": "string",   // Compulsory: Generate a reference for this transaction
+  "clientReference": "string",   // Compulsory: Generate a unique reference for this transaction
   "narration": "Test Order Description", // Minimum 5 characters
   "address": "100 Main st",       // Minimum 10 Characters
   "paymentMethod": "card",     
@@ -199,7 +199,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/hosted-payment
   "phoneNumber": "string",       // Phone with country code
   "customerName": "string",   
   "customerId": "string",   
-  "clientReference": "string",   // Compulsory: Generate a reference for this transaction
+  "clientReference": "string",   // Compulsory: Generate a unique reference for this transaction
   "narration": "Test Order Description", // Minimum 5 characters
   "address": "100 Main st",       // Minimum 10 Characters
   "paymentMethod": "card",     
@@ -279,7 +279,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/initialize
   "phoneNumber": "string",       // Phone with country code
   "customerName": "string",      
   "customerId": "string",
-  "clientReference": "string",   // Compulsory: Generate a reference for this transaction
+  "clientReference": "string",   // Compulsory: Generate a unique reference for this transaction
   "narration": "Test Order Description", // Minimum 5 characters
   "address": "100 Main st",       // Minimum 10 Characters
   "paymentMethod": "BANK_TRANSFER",     // Use BANK_TRANSFER as the value in paymentMethod
