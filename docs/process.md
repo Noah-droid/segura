@@ -133,6 +133,28 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
 }
 ```
 
+**Response Example (3DS Cards):**
+```json
+{
+    "requestTime": "2025-09-28T13:43:30.968439148",
+    "status": true,
+    "code": 200,
+    "message": "Payment processed successfully",
+    "data": {
+        "success": true,
+        "currency": "GBP",
+        "amount": 500,
+        "orderReference": "ff1d238b-6487-4278-b974-1f3beb910642",
+        "status": "PENDING",
+        "redirectUrl": "https://sandbox.gateway-services.com/api/3ds/sandbox",
+        "provider": "COWIN",
+        "statusCode": "1351",
+        "statusDescription": "3DS Authentication pending"
+    }
+}
+```
+
+
 ### Payment Flow
 1. Initialize payment using either the `initialize` or `hosted-payment` endpoint.
 2. For `hosted-payment`, redirect user to the `redirectUrl` received in the response:
@@ -163,6 +185,7 @@ After transaction completion, Segura sends a webhook notification to your `callb
   "createdAt":1756465636.000000000
 }
 ```
+
 
 ### Webhook Requirements
 1. Your `callbackUrl` should be:
@@ -365,7 +388,7 @@ curl -X GET https://api-dev.segura-pay.com/api/v1/payment-gateway/status/35ca5fa
 - Currencies we deal with currently for Payments are `USD`, `GBP` and `EUR`
 - `GBP` or `EUR` are the only currencies accepted for Bank Transfer Payment Method
 <!-- - The `redirectUrl` is a secure Segura-hosted payment page where customers enter their payment details -->
-- Redirect your user to the `redirectUrl` returned in the response of `hosted-payment` and payment initialization using `BANK_TRANSFER` as payment method
+- Redirect your user to the `redirectUrl` returned in the response of `process`, `hosted-payment` and payment initialization using `BANK_TRANSFER` as payment method
 - Always store the `reference` to check payment status later
 - Monitor the payment status endpoint to confirm successful transactions
 - Use test environment for development and testing
