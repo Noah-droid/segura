@@ -3,7 +3,7 @@
 | Card Type | Card Number          | Status | Error Code |
 |-----------|-----------------------|---------|-------------|
 | MASTERCARD| 5265967392134036      | Y       | APPROVED    |
-| VISA      | 4485081333091151      | Y       | APPROVED    |
+| VISA      | 4104290687925390      | Y       | APPROVED    |
 
  <!-- **Success Cards Test case 1:**
 ![alt text](image-1.png)
