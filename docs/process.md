@@ -133,26 +133,34 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
 }
 ```
 
-<!-- **Response Example (3DS Cards):**
+**Response Example (3DS Cards):**
 ```json
 {
-    "requestTime": "2025-09-28T13:43:30.968439148",
+    "requestTime": "2025-08-18T19:55:56.804686148",
     "status": true,
     "code": 200,
     "message": "Payment processed successfully",
     "data": {
-        "success": true,
-        "currency": "GBP",
+        "order_id": "f992ac19-cd7f-48d1-a054-c73855cecdc0",
+        "transaction_id": "GWS202508182255513711675",
         "amount": 500,
-        "orderReference": "ff1d238b-6487-4278-b974-1f3beb910642",
+        "currency": "GBP",
         "status": "PENDING",
-        "redirectUrl": "https://sandbox.gateway-services.com/api/3ds/sandbox",
-        "provider": "COWIN",
-        "statusCode": "1351",
-        "statusDescription": "3DS Authentication pending"
+        "status_code": "1351",
+        "status_description": "3DS Payment",
+        "created": "2025-08-18T19:55:51.000000Z",
+        "card_token": "5793c000-7c6d-11f0-b05e-0f1d37fe085e",
+        "customer_token": "578fa010-7c6d-11f0-95d2-ffa1c6e03a7e",
+        "descriptor": "Panini Stationaries",
+        "redirect": {
+            "url": "https://api.gateway-services.com/api/redirect-to-3d/43130416/28",
+            "method": "GET",
+            "target": "blank",
+            "parameters": null
+        }
     }
 }
-``` -->
+```
 
 
 ### Payment Flow
