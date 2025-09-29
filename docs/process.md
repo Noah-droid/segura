@@ -136,30 +136,28 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
 **Response Example (3DS Cards):**
 ```json
 {
-    "requestTime": "2025-08-18T19:55:56.804686148",
+    "requestTime": "2025-09-29T12:18:57.257880594",
     "status": true,
     "code": 200,
     "message": "Payment processed successfully",
     "data": {
-        "order_id": "f992ac19-cd7f-48d1-a054-c73855cecdc0",
-        "transaction_id": "GWS202508182255513711675",
-        "amount": 500,
+        "orderId": "0d83b200-3cad-4ece-a435-75460b8397bc",
+        "transactionId": "GWS202509291518506766267",
         "currency": "GBP",
+        "amount": 500,
         "status": "PENDING",
-        "status_code": "1351",
-        "status_description": "3DS Payment",
-        "created": "2025-08-18T19:55:51.000000Z",
-        "card_token": "5793c000-7c6d-11f0-b05e-0f1d37fe085e",
-        "customer_token": "578fa010-7c6d-11f0-95d2-ffa1c6e03a7e",
-        "descriptor": "Panini Stationaries",
+        "statusCode": "1351",
+        "created": "2025-09-29T12:18:56.873580314Z",
+        "statusDescription": "3DS Payment",
+        "descriptor": "Test Order Description",
         "redirect": {
-            "url": "https://api.gateway-services.com/api/redirect-to-3d/43130416/28",
+            "url": "https://api.gateway-services.com/api/redirect-to-3d/43342964/28",
             "method": "GET",
-            "target": "blank",
-            "parameters": null
+            "target": "blank"
         }
     }
 }
+
 ```
 
 
