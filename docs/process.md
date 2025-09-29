@@ -133,7 +133,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
 }
 ```
 
-**Response Example (3DS Cards):**
+<!-- **Response Example (3DS Cards):**
 ```json
 {
     "requestTime": "2025-09-28T13:43:30.968439148",
@@ -152,7 +152,7 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
         "statusDescription": "3DS Authentication pending"
     }
 }
-```
+``` -->
 
 
 ### Payment Flow
