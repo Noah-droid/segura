@@ -100,17 +100,16 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
 **Request Body Example:**
 ```json
 {
-  "pan": "5265967392134036",
+  "pan": "5265967392134036", // Required (cannot be blank), Must be only digits Length between 10 and 19 digits.
   "cvv": "123",  // CVV must be 3 or 4 digits
   "expiry": "12/2099", // Expiry is required (MM/YY or MM/YYYY)
   "expiryMonth": "12", // Expiry month must be 01–12
   "expiryYear": "39", // Expiry year must be YY or YYYY
   "reference": "bba5e540-ea8d-4aa2-ab25-6bef31f6ef2d",   // pass in reference from the initialized request
-  "customerdob": "1990-01-01",
-  "cardholdername": "John Doe", // Minimum 3 characters
-  "customerfirstname": "John", // Minimum 3 characters
-  "customerlastname": "Smith", // Minimum 3 characters
-  "customerpostcode": "98102",
+  "customerdob": "1990-01-01", 
+  "cardholdername": "John Doe", // Minimum 3 characters 
+  "customerfirstname": "John", // Minimum 3 characters 
+  "customerlastname": "Smith", // Minimum 3 characters  
   "cardScheme": "VISA",
   "cardType": "DEBIT"
 }
