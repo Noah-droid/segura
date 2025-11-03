@@ -9,8 +9,9 @@ nav:
   - Cards: cards.md
   # - Apple Pay & Google Pay: apple-google.md
   # - Segura Virtual Accounts: sva.md
+
+  - Payment Status : status.md
   - Conclusion: conclusion.md
 
-  # - Get Status: status.md
 
 theme: readthedocs

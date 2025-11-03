@@ -170,14 +170,17 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
 ### Demo
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ygJQscW2M-Y" title="Segura Gateway Integration Video" frameborder="0" allowfullscreen></iframe>
 
+<br>
+
+
 ### Webhook Notifications
 After transaction completion, Segura sends a webhook notification to your `callbackUrl` if provided. For example:
 
 ```json
 {
   "customerName":"Noah Droid",
-  "customerId":"test_CORP-DQBTRN-707727-20250213",
-  "cardScheme":null,
+  "customerId":"13008307-12ce-437b-8a10-bdfbe1a7f809",
+  "cardScheme":"MASTERCARD",
   "cardType":null,
   "countryCode":"UK",
   "currency":"GBP",
@@ -185,7 +188,8 @@ After transaction completion, Segura sends a webhook notification to your `callb
   "orderReference":"1e3ddbe5-4a50-4a8b-a481-1494ba78c06b",
   "clientReference":"e6c13f43-9125-4cf3-97f9-2f761516c985",
   "paymentStatus":"SUCCESS",
-  "maskedPan":null,
+  "statusDescription": "3DS Authentication",
+  "maskedPan":"4485********1151",
   "clientId":"test_CORP-DQBTRN-707727-20250213",
   "createdAt":1756465636.000000000
 }
@@ -387,6 +391,25 @@ Replace `{reference}` with the reference from payment initialization.
 ```bash
 curl -X GET https://api-dev.segura-pay.com/api/v1/payment-gateway/status/35ca5fa9-2848-47c1-ad78-44127751a24e \
 -H "AuthKey: <EncodedAuthKey>"
+```
+
+
+
+## Response Example
+```json
+{
+    "requestTime": "2025-02-03T19:10:22.396617921",
+    "status": true,
+    "code": 200,
+    "message": "Payment retrieved successfully",
+    "data": {
+        "currency": "GBP",
+        "amount": 500,
+        "paymentReference": "84b8f6e4-582b-4b7b-8eb7-3522b090914d",
+        "status": "PENDING",
+        "statusDescription": "3DS Payment"
+    }
+}
 ```
 
 ## Important Notes
