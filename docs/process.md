@@ -106,12 +106,12 @@ POST https://api-dev.segura-pay.com/api/v1/payment-gateway/process
   "expiryMonth": "12", // Expiry month must be 01–12
   "expiryYear": "39", // Expiry year must be YY or YYYY
   "reference": "bba5e540-ea8d-4aa2-ab25-6bef31f6ef2d",   // pass in reference from the initialized request
-  "customerdob": "1990-01-01", 
+  "customerdob": "1990-01-01", // Not mandatory
   "cardholdername": "John Doe", // Minimum 3 characters 
   "customerfirstname": "John", // Minimum 3 characters 
   "customerlastname": "Smith", // Minimum 3 characters  
-  "cardScheme": "VISA",
-  "cardType": "DEBIT"
+  "cardScheme": "VISA",  // Not mandatory
+  "cardType": "DEBIT" // Not mandatory
 }
 ```
 
