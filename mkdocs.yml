@@ -4,14 +4,40 @@ nav:
   - Home: index.md
   - Api Keys: apis.md
   # - Javascript Library: payments.md
-  - API Integration: process.md 
-  - Mobile Money Integration: mobile.md 
+  - API Integration: process.md
+  - Mobile Money Integration: mobile.md
   - Cards: cards.md
   # - Apple Pay & Google Pay: apple-google.md
   # - Segura Virtual Accounts: sva.md
-
-  - Payment Status : status.md
+  - Payment Status: status.md
   - Conclusion: conclusion.md
 
+theme:
+  name: material
+  logo: segura.svg 
+  favicon: segura.svg
+  palette:
+    primary: cyan
+    accent: teal
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+    - search.highlight
 
-theme: readthedocs
+  # features:
+  #   - navigation.instant
+  #   - navigation.top
+  #   - search.suggest
+  #   - search.highlight
+  #   - content.code.copy
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
