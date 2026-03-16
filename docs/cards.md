@@ -1,59 +1,36 @@
 ### Test Cards for 3D Secure (3DSv2) Testing
-#### (3DSv2) Test Case 1: Successful Frictionless 3-D Secure Authentication & Successful Authorisation
-| Card Type | Card Number          | Status | Error Code |
-|-----------|-----------------------|---------|-------------|
-| MASTERCARD| 5265967392134036      | Y       | APPROVED    |
-| VISA      | 4485081333091151      | Y       | APPROVED    |
+## 3DS Test Cards
+| Card | PAN | Result | Scenario |
+|------|-------------------|--------|------------------------|
+| Visa | 4900490000000501 | Success | Frictionless |
+| Visa | 4900490000000519 | Fail | Frictionless failure |
+| Visa | 4900490000000527 | Success | Attempts stand-in |
+| Visa | 4900490000000535 | Success | Unavailable auth |
+| Visa | 4900490000000543 | Fail | Rejected auth |
+| MC | 5591390000000504 | Success | Frictionless |
+| MC | 5591390000000520 | Fail | Frictionless failure |
+| Amex | 340000000004001 | Success | Frictionless |
+| Amex | 340000000004019 | Fail | Frictionless failure |
+| Discover | 6573700000000009 | Success | Frictionless |
 
- <!-- **Success Cards Test case 1:**
-![alt text](image-1.png)
+## Common Settings (All Cards)
+- **Expiry Date:** Any valid future date (e.g., **12/2028**)
+- **CVV / CVC:**
+  - **123** for Visa / Mastercard / Discover
+  - **1234** for Amex
 
-![alt text](image.png) -->
-
-
-#### (3DSv2) Test Case 2: Failed Frictionless 3-D Secure Authentication & Failed Authorisation
-| Card Type | Card Number          | Status | Error Code |
-|-----------|-----------------------|---------|-------------|
-| MASTERCARD| 5104914677098556      | N       | DECLINED|
-| VISA      | 4929616497303647      | N       | DECLINED |
-
- <!-- **Failed Cards Test case 1:** -->
-
-
-<!-- ### Naira Card Integration Test Cards
-
-Use the following test cards for Mastercard, Visa, and Discover when testing Naira (NGN) payments:
-
-| Card Type   | Card Number         | Expiry  | Status     | Notes         |
-|-------------|---------------------|---------|------------|---------------|
-| MASTERCARD  | 5123450000000008    | 01/39   | APPROVED   | Test approval |
-| MASTERCARD  | 2223000000000007    | 01/39   | APPROVED   | Test approval |
-| MASTERCARD  | 5111111111111118    | 05/39   | DECLINED   | Test decline  |
-| MASTERCARD  | 2223000000000023    | 04/27   | EXPIRED    | Expired card  |
-| VISA        | 4508750015741019    | 01/39   | APPROVED   | Test approval |
-| VISA        | 4012000033330026    | 05/39   | DECLINED   | Test decline  |
-| DISCOVER    | 6011003179988686    | 01/39   | APPROVED   | Test approval |
-| DISCOVER    | 6011963280099774    | 05/39   | DECLINED   | Test decline  |
-
-
-#### Naira Card Status Codes
-
-| Code | Meaning         |
-|------|----------------|
-| 100  | MATCH          |
-| 101  | NOT_PROCESSED  |
-| 102  | NO_MATCH       |
-
-
-> **Note:**  
-> - Use the appropriate expiry date to simulate approved, declined, or expired card scenarios.
-> - For security code, use **"100"** for Mastercard, Visa, and Discover.
-> - These cards are for Naira (NGN) integration testing only. -->
+## Control Amounts
+| Amount | Result |
+|--------|--------|
+| Any (e.g., 10.50) | Success |
+| 700.00 | Decline |
+| 600.10 | Bank system error |
 
 
 
-### Important Notes on Test Data
-- **Expiry Date:** Remember that you need to set the expiry date to any valid date in the future, otherwise an invalid field error will be returned.
-- **Security Code:** To pass the security code checks, please use the following values:
-  - **"123"** for  **MASTERCARD** and **VISA** cards.
-  <!-- - **"1234"** for **AMEX** cards. -->
+## Postman Test Example
+Use the following values when running a manual Postman test:
+- **PAN:** 4900490000000501 (Visa, frictionless success)
+- **Expiry:** 12/2028
+- **CVV:** 123
+- **Amount:** 5000 (represents 50.00 in smallest unit)
