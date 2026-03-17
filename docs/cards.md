@@ -16,10 +16,10 @@
 
 ## 2DS Test Cards
 | PAN | Result | Scenario |
-|-----------------|-------------------|--------|
-|4111111111111111	| Auth success | settle status 0
-|4000000000000002	| Auth declined|
-|4000000000000010 |	Auth success |
+|-------------------|-------------------|------------------|
+| 4111111111111111 | Auth success | settle status 0 |
+| 4000000000000002 | Auth declined | |
+| 4000000000000010 | Auth success | |
 
 
 ## Common Settings (All Cards)
