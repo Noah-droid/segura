@@ -13,6 +13,15 @@
 | Amex | 340000000004019 | Fail | Frictionless failure |
 | Discover | 6573700000000009 | Success | Frictionless |
 
+
+## 2DS Test Cards
+| PAN | Result | Scenario |
+|-----------------|-------------------|--------|
+|4111111111111111	| Auth success | settle status 0
+|4000000000000002	| Auth declined|
+|4000000000000010 |	Auth success |
+
+
 ## Common Settings (All Cards)
 - **Expiry Date:** Any valid future date (e.g., **12/2028**)
 - **CVV / CVC:**
@@ -30,6 +39,7 @@
 
 ## Postman Test Example
 Use the following values when running a manual Postman test:
+
 - **PAN:** 4900490000000501 (Visa, frictionless success)
 - **Expiry:** 12/2028
 - **CVV:** 123
