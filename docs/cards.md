@@ -22,7 +22,7 @@
 |------|-------------------|--------|------------------------|----------------------------------------------------|
 | Visa | 4900490000000667 | Success | Successful Step Up | v2.2.0 |
 | MC | 5591390000000645 | Success | Successful Step Up | v2.2.0 |
-| Amex | 340000000004118 | Success | Successful Step Up | v2.2.0, THREEDQUERY, Enrolled: Y, Status: C, AUTH: 0 |
+| Amex | 340000000004118 | Success | Successful Step Up | v2.2.0 |
 | Discover | 6599999900000396 | Success | Successful Step Up | v2.2.0 |
 
 
